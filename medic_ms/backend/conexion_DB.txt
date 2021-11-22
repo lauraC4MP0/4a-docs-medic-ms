@@ -1,0 +1,4 @@
+mongodb+srv://fcandanoza:Noriega31@accountbd.txzka.mongodb.net/AccountBD?retryWrites=true&w=majority
+
+usuario: fcandanoza
+contraseña: Noriega31
