@@ -1,4 +1,4 @@
-package grupo2ciclo4.consulmedicms.models;
+package com.misiontic.medic_ms.models;
 import org.springframework.data.annotation.Id;
 
 import java.text.DateFormat;
