@@ -19,8 +19,10 @@ public class ReportEvolution {
     private String allergies;
     private String hereditary_family_history;
     private String physical_exam;
+    private String medicines;
+    
 
-    public ReportEvolution(Number id_report, Date date,Number id_patient,Number age,Number weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam){
+    public ReportEvolution(Number id_report, Date date,Number id_patient,Number age,Number weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
         this.id_report=id_report;
         this.date=date;
         this.id_patient=id_patient;
@@ -33,6 +35,7 @@ public class ReportEvolution {
         this.allergies=allergies;
         this.hereditary_family_history=hereditary_family_history;
         this.physical_exam=physical_exam;
+        this.medicines=medicines;
     }
 
     public Number getid_report() {
@@ -81,5 +84,9 @@ public class ReportEvolution {
 
     public String getphysical_exam() {
         return physical_exam;
+    }
+    
+    public String getmedicines() {
+        return medicines;
     }
 }
