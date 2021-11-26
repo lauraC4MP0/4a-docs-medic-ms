@@ -15,32 +15,46 @@
 
 	<properties>
 		<java.version>11</java.version>
+
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<version>2.5.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.5.7</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<version>2.5.7</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
+<<<<<<< HEAD
 		<defaultGoal>install</defaultGoal>
+=======
+
+>>>>>>> d4e09545d25c99ef5a10154a632cae1ea9513027
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+<<<<<<< HEAD
 				<version>2.5.7</version>
 			</plugin>
+=======
+				<version>2.6.0</version>
+				
+						</plugin>
+>>>>>>> d4e09545d25c99ef5a10154a632cae1ea9513027
 		</plugins>
 	</build>
 
