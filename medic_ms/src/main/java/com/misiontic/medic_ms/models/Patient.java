@@ -11,6 +11,7 @@ public class Patient {
     private String phoneNumber;
     private String email;
     private String bloodType;
+    private Boolean is_active;
 
     public Patient(String id, String name,String lastname,Date dateBirth,String phoneNumber,String email,String bloodType){
         this.id=id;
@@ -48,5 +49,21 @@ public class Patient {
 
     public String getBloodType() {
         return bloodType;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Boolean getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(Boolean is_active){
+        this.is_active=is_active;
     }
 }

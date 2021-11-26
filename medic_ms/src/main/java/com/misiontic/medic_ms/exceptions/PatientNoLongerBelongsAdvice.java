@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 @ResponseBody
 
-public class ReportEvolutionNotFoundAdvice {
+public class PatientNoLongerBelongsAdvice {
     @ResponseBody
-    @ExceptionHandler(ReportEvolutionNotFoundException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    String reportEvolutionNotFoundAdvice (ReportEvolutionNotFoundException ex){
+    @ExceptionHandler(PatientNoLongerBelongsException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    String EntityNotFoundAdvide(PatientNoLongerBelongsException ex){
         return ex.getMessage();
     }
 }

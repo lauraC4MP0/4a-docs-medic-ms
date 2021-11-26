@@ -1,7 +1,5 @@
 package com.misiontic.medic_ms.models;
 import org.springframework.data.annotation.Id;
-
-import java.text.DateFormat;
 import java.util.Date;
 
 public class ReportEvolution {
