@@ -1,24 +1,28 @@
-/*package com.misiontic.medic_ms.controllers;
+package com.misiontic.medic_ms.controllers;
 import com.misiontic.medic_ms.exceptions.*;
 import com.misiontic.medic_ms.models.Patient;
-import com.misiontic.medic_ms.repositories.PatientRepository;
+import com.misiontic.medic_ms.repositories.PatientsRepository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PatientController{
-    private final PatientRepository patientRepository;
-    public PatientController(PatientRepository patientRepository){
+    private final PatientsRepository patientRepository;
+    public PatientController(PatientsRepository patientRepository){
         this.patientRepository=patientRepository;
     }
 
     @GetMapping("/patients/{id}")
     Patient getPatient(@PathVariable String id){
-        if(patientRepository.findById(id).getIs_active()==true){
-            return patientRepository.findById(id);
-        }else if(patientRepository.findById(id).getIs_active()==false){
-            return new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
+        if(patientRepository.findById(id).get().getIs_active()==true){
+            return patientRepository.findById(id).get();
         }else{
-            return new PatientNoFoundException("No existe ningún paciente con el id "+id);
+            if(patientRepository.findById(id).get().getIs_active()==false){
+                new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
+                return null;
+            }else{
+                new PatientNotFoundException("No existe ningún paciente con el id "+id);
+                return null;
+            }
         }
     }
 
@@ -26,4 +30,4 @@ public class PatientController{
     Patient newPatient(@RequestBody Patient patient){
         return patientRepository.save(patient);
     }
-}*/
+}
