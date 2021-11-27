@@ -4,12 +4,11 @@ import java.util.Date;
 
 public class ReportEvolution {
     @Id
-
-    private Number id_report;
+    private String idReport;
     private Date date;
-    private Number id_patient;
+    private String idPatient;
     private Number age;
-    private Number weight;
+    private String weight;
     private String reason_for_consultation;
     private String current_illness;
     private String background;
@@ -20,10 +19,10 @@ public class ReportEvolution {
     private String medicines;
     
 
-    public ReportEvolution(Number id_report, Date date,Number id_patient,Number age,Number weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
-        this.id_report=id_report;
+    public ReportEvolution(String idReport, Date date,String idPatient,Number age,String weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
+        this.idReport=idReport;
         this.date=date;
-        this.id_patient=id_patient;
+        this.idPatient=idPatient;
         this.age=age;
         this.weight=weight;
         this.reason_for_consultation=reason_for_consultation;
@@ -36,23 +35,23 @@ public class ReportEvolution {
         this.medicines=medicines;
     }
 
-    public Number getid_report() {
-        return id_report;
+    public String getidReport() {
+        return idReport;
     }
 
     public Date getdate() {
         return date;
     }
 
-    public Number getid_patient() {
-        return id_patient;
+    public String getIdPatient() {
+        return idPatient;
     }
 
     public Number getage() {
         return age;
     }
 
-    public Number getweight() {
+    public String getweight() {
         return weight;
     }
 
