@@ -17,11 +17,9 @@ public class PatientController{
             return patientRepository.findById(id).get();
         }else{
             if(patientRepository.findById(id).get().getIs_active()==false){
-                new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
-                return null;
+                throw new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
             }else{
-                new PatientNotFoundException("No existe ningún paciente con el id "+id);
-                return null;
+                throw new PatientNotFoundException("No existe ningún paciente con el id "+id);
             }
         }
     }
