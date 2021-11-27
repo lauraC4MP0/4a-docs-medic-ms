@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface ReportEvolutionRepository extends MongoRepository<ReportEvolution, Number>
 {
-    List<ReportEvolution> findById_patient (String id_patient);
+    List<ReportEvolution> findById(String id_patient);
 
 }
