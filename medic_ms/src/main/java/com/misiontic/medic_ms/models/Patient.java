@@ -1,5 +1,7 @@
 package com.misiontic.medic_ms.models;
 import org.springframework.data.annotation.Id;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 import java.util.Date;
 
 public class Patient {

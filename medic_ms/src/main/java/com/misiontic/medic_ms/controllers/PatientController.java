@@ -11,6 +11,11 @@ public class PatientController{
         this.patientRepository=patientRepository;
     }
 
+    @GetMapping("/")
+    String messageRoot(){
+        return "Bienvenido a PatientMS";
+    }
+
     @GetMapping("/patients/{id}")
     Patient getPatient(@PathVariable String id){
         if(patientRepository.findById(id).get().getIs_active()==true){

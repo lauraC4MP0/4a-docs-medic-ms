@@ -21,6 +21,11 @@ public class ReportEvolutionController {
 
     }
 
+    @GetMapping("/ReportEvolution")
+    String messageRoot(){
+        return "Bienvenido a ReportEvolutionMS";
+    }
+
     @PostMapping("/reportEvolution")
     ReportEvolution newReportEvolution(@RequestBody ReportEvolution reportEvolution){
         return reportEvolutionRepository.save(reportEvolution);
