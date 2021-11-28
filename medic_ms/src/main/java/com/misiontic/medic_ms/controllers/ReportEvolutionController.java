@@ -22,6 +22,8 @@ public class ReportEvolutionController {
             throw new ReportEvolutionNotFoundException("No se encontraron historias clínicas para el paciente "+id_patient);
         }
         return reports;
+            orElseThrow(() -> new ReportEvolutionNotFoundException("No se encontraron historias clínicas para el paciente "+id_patient)
+            );
     }
 
     @PostMapping("/reportEvolution")
