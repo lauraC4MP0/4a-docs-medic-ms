@@ -1,13 +1,10 @@
 package com.misiontic.medic_ms.models;
-import org.springframework.data.annotation.Id;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ReportEvolution {
-    @Id
-    private String idReport;
-    private Date date;
-    private String idPatient;
-    private Number age;
+    private LocalDate date;
+    private Long idPatient;
+    private Integer age;
     private String weight;
     private String reason_for_consultation;
     private String current_illness;
@@ -19,11 +16,9 @@ public class ReportEvolution {
     private String medicines;
     
 
-    public ReportEvolution(String idReport, Date date,String idPatient,Number age,String weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
-        this.idReport=idReport;
-        this.date=date;
+    public ReportEvolution(Long idPatient,Integer age,String weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
+        this.date=LocalDate.now();
         this.idPatient=idPatient;
-        this.age=age;
         this.weight=weight;
         this.reason_for_consultation=reason_for_consultation;
         this.current_illness=current_illness;
@@ -35,15 +30,11 @@ public class ReportEvolution {
         this.medicines=medicines;
     }
 
-    public String getidReport() {
-        return idReport;
-    }
-
-    public Date getdate() {
+    public LocalDate getdate() {
         return date;
     }
 
-    public String getIdPatient() {
+    public Long getIdPatient() {
         return idPatient;
     }
 
@@ -51,6 +42,9 @@ public class ReportEvolution {
         return age;
     }
 
+    public void setAge(Integer age){
+        this.age=age;
+    }
     public String getweight() {
         return weight;
     }

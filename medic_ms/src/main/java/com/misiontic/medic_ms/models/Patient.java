@@ -1,21 +1,19 @@
 package com.misiontic.medic_ms.models;
 import org.springframework.data.annotation.Id;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Patient {
     @Id
-    private String id;
+    final private Long id;
     private String name;
     private String lastname;
-    private Date dateBirth;
-    private String phoneNumber;
+    private LocalDate dateBirth;
+    private Long phoneNumber;
     private String email;
     private String bloodType;
     private Boolean is_active;
 
-    public Patient(String id, String name,String lastname,Date dateBirth,String phoneNumber,String email,String bloodType){
+    public Patient(Long id, String name,String lastname,LocalDate dateBirth,Long phoneNumber,String email,String bloodType){
         this.id=id;
         this.name=name;
         this.lastname=lastname;
@@ -23,9 +21,10 @@ public class Patient {
         this.phoneNumber=phoneNumber;
         this.email=email;
         this.bloodType=bloodType;
+        this.is_active=true;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -37,7 +36,7 @@ public class Patient {
         return lastname;
     }
 
-    public Date getDateBirth() {
+    public LocalDate getDateBirth() {
         return dateBirth;
     }
 
@@ -45,7 +44,7 @@ public class Patient {
         return email;
     }
 
-    public String getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -53,7 +52,7 @@ public class Patient {
         return bloodType;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
