@@ -8,5 +8,4 @@ import java.util.List;
 public interface ReportEvolutionRepository extends MongoRepository<ReportEvolution, Long>
 {
     List<ReportEvolution> findByidPatient(Long idPatient);
-
 }
