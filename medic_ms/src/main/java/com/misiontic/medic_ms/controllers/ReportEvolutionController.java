@@ -16,28 +16,29 @@ import com.misiontic.medic_ms.repositories.PatientsRepository;
 public class ReportEvolutionController {
     private final ReportEvolutionRepository reportEvolutionRepository;
 
-    public ReportEvolutionController(ReportEvolutionRepository reportEvolutionRepository){
-        this.reportEvolutionRepository  = reportEvolutionRepository;
+    public ReportEvolutionController(ReportEvolutionRepository reportEvolutionRepository) {
+        this.reportEvolutionRepository = reportEvolutionRepository;
 
     }
 
     @GetMapping("/ReportEvolution")
-    String messageRoot(){
+    String messageRoot() {
         return "Bienvenido a ReportEvolutionMS";
     }
 
     @PostMapping("/reportEvolution")
-    ReportEvolution newReportEvolution(@RequestBody ReportEvolution reportEvolution){
+    ReportEvolution newReportEvolution(@RequestBody ReportEvolution reportEvolution) {
         return reportEvolutionRepository.save(reportEvolution);
     }
 
     @GetMapping("/reportEvolution/{idPatient}")
-    List<ReportEvolution> getReportEvolution(@PathVariable String idPatient){
+    List<ReportEvolution> getReportEvolution(@PathVariable String idPatient) {
         List<ReportEvolution> reports = reportEvolutionRepository.findByidPatient(idPatient);
-        if (reports == null){
-            throw new ReportEvolutionNotFoundException("No se encontraron historias clínicas para el paciente "+idPatient);
+        if (reports == null) {
+            throw new ReportEvolutionNotFoundException("No se encontraron historias clínicas para el paciente " + idPatient);
+        } else {
+            return reports;
         }
-        return reports;
-    }
 
+    }
 }
