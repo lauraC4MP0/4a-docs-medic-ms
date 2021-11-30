@@ -13,11 +13,10 @@ public class PatientController{
 
     @GetMapping("/patients/{id}")
     Patient getPatient(@PathVariable Long id){
-        Patient patient = patientRepository.findById(id).orElseThrow(() ->new PatientNotFoundException("No existe paciente con este Doc Identidad: "+ id));
-        if(patient.getIs_active()==true){
+        if(patientRepository.findById(id).get().getIs_active()==true){
             return patientRepository.findById(id).get();
         }else{
-            if(patient.getIs_active()==false){
+            if(patientRepository.findById(id).get().getIs_active()==false){
                 throw new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
             }
             else{
@@ -32,7 +31,7 @@ public class PatientController{
         return patientRepository.save(patient);
     }
 
-    @DeleteMapping("/patients/delete/{id}")
+    @PutMapping("/patients/delete/{id}")
     Patient deletePatient(@PathVariable Long id){
         Patient patient=patientRepository.findById(id).get();
         patient.setIs_active(false);

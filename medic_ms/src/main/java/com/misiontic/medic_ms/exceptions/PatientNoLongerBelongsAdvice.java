@@ -11,7 +11,7 @@ public class PatientNoLongerBelongsAdvice {
     @ResponseBody
     @ExceptionHandler(PatientNoLongerBelongsException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String EntityNotFoundAdvice(PatientNoLongerBelongsException ex){
+    String EntityNotFoundAdvide(PatientNoLongerBelongsException ex){
         return ex.getMessage();
     }
 }

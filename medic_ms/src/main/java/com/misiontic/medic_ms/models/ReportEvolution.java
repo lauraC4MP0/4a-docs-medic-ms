@@ -14,7 +14,7 @@ public class ReportEvolution {
     private String hereditary_family_history;
     private String physical_exam;
     private String medicines;
-
+    
 
     public ReportEvolution(Long idPatient,Integer age,String weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
         this.date=LocalDate.now();
@@ -76,7 +76,7 @@ public class ReportEvolution {
     public String getphysical_exam() {
         return physical_exam;
     }
-
+    
     public String getmedicines() {
         return medicines;
     }
