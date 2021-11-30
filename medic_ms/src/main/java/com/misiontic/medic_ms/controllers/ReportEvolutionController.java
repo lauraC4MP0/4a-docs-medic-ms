@@ -41,6 +41,10 @@ public class ReportEvolutionController {
             if(reports==null||reports.size()==0){
                 throw new ReportEvolutionNotFoundException("No se encontró historia clínica para el paciente con id "+idPatient);
             }else{
+                for(int i=0;i<reports.size();i++){
+                    int age=reports.get(i).getdate().getYear()-patient.getDateBirth().getYear();
+                    reports.get(i).setAge(age);
+                }
                 return reports;
             }
         }else{
