@@ -1,5 +1,6 @@
 package com.misiontic.medic_ms.models;
 import java.time.LocalDate;
+//import com.misiontic.medic_ms.repositories.PatientsRepository;
 
 public class ReportEvolution {
     private LocalDate date;
@@ -15,9 +16,9 @@ public class ReportEvolution {
     private String physical_exam;
     private String medicines;
 
-
     public ReportEvolution(Long idPatient,Integer age,String weight,String reason_for_consultation,String current_illness,String background,String diseases,String allergies,String hereditary_family_history,String physical_exam,String medicines){
         this.date=LocalDate.now();
+        //this.age=date.getYear()-patientsRepository.findById(idPatient).get().getDateBirth().getYear();
         this.idPatient=idPatient;
         this.weight=weight;
         this.reason_for_consultation=reason_for_consultation;
@@ -38,7 +39,7 @@ public class ReportEvolution {
         return idPatient;
     }
 
-    public Number getage() {
+    public Integer getage() {
         return age;
     }
 

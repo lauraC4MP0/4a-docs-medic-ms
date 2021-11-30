@@ -13,16 +13,11 @@ public class PatientController{
 
     @GetMapping("/patients/{id}")
     Patient getPatient(@PathVariable Long id){
-        Patient patient = patientRepository.findById(id).orElseThrow(() ->new PatientNotFoundException("No existe paciente con este Doc Identidad: "+ id));
+        Patient patient=patientRepository.findById(id).orElseThrow(()->new PatientNotFoundException("No existe nigún paciente con el id "+id));
         if(patient.getIs_active()==true){
-            return patientRepository.findById(id).get();
+            return patient;
         }else{
-            if(patient.getIs_active()==false){
-                throw new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
-            }
-            else{
-                throw new PatientNotFoundException("No existe ningún paciente con el id "+id);
-            }
+            throw new PatientNoLongerBelongsException("El paciente "+id+" ya no hace parte de ConsulMedic");
         }
     }
 
@@ -32,20 +27,24 @@ public class PatientController{
         return patientRepository.save(patient);
     }
 
-    @DeleteMapping("/patients/delete/{id}")
-    Patient deletePatient(@PathVariable Long id){
-        Patient patient=patientRepository.findById(id).get();
-        patient.setIs_active(false);
-        patientRepository.save(patient);
-        return patient;
+    @PutMapping("/patients/delete/{id}")
+    String deletePatient(@PathVariable Long id){
+        Patient patient=patientRepository.findById(id).orElseThrow(()->new PatientNotFoundException("No existe ningún usuario con el id "+id));
+        if(patient.getIs_active()==true){
+            patient.setIs_active(false);
+            patientRepository.save(patient);
+            return "Paciente "+patient.getLastname()+" "+patient.getName()+" eliminado correctamente";
+        }else{
+            throw new PatientNoLongerBelongsException("El paciente "+id+" ya ha sido eliminado anteriormente");
+        }
     }
 
     @PutMapping("/patients/update/{id}")
     Patient updatePatient(@RequestBody Patient patient){
+        Patient p=patientRepository.findById(patient.getId()).orElseThrow(()->new PatientNotFoundException("No existe ningún paciente con el id"+patient.getId()));
         if(patient.getIs_active()==false){
             throw new PatientNoLongerBelongsException("El paciente ya no hace parte de ConsulMedic");
         }else{
-            Patient p=patientRepository.findById(patient.getId()).get();
             p.setEmail(patient.getEmail());
             p.setPhoneNumber(patient.getPhoneNumber());
             patientRepository.save(p);
